@@ -37484,7 +37484,7 @@ var render = function() {
       "div",
       {
         staticClass:
-          "weather-container font-sans w-128 max-w-lg overflow-hidden bg-gradient-to-tr from-gray-800 to-gray-400 shadow-lg mt-4 rounded"
+          "weather-container font-sans w-128 max-w-lg overflow-hidden bg-gray-500 shadow-lg mt-4 rounded"
       },
       [
         _c(

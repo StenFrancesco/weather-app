@@ -7,7 +7,7 @@
             <p class="m-1">Selected: <strong id="address-value">none</strong></p>
         </div>
 
-        <div class="weather-container font-sans w-128 max-w-lg overflow-hidden bg-gradient-to-tr from-gray-800 to-gray-400 shadow-lg mt-4 rounded">
+        <div class="weather-container font-sans w-128 max-w-lg overflow-hidden bg-gray-500 shadow-lg mt-4 rounded">
             <div class="current-weather flex items-center justify-between px-6 py-8">
                 <div class="flex items-center">
                     <div>
