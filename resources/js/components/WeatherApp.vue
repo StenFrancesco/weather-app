@@ -2,11 +2,12 @@
     <div class="text-white mb-8">
         
         <div class="places-input text-gray-800">
-            <input type="search" id="address" class="form-control" placeholder="Where are we going?" />
-            <br />
-            <p>Selected: <strong id="address-value">none</strong></p>
+            <input type="search" id="address" class="form-control rounded" placeholder="Where are we going?" />
+            
+            <p class="m-1">Selected: <strong id="address-value">none</strong></p>
         </div>
-        <div class="weather-container font-sans w-128 max-w-lg overflow-hidden bg-gray-900 shadow-lg mt-4">
+
+        <div class="weather-container font-sans w-128 max-w-lg overflow-hidden bg-gradient-to-tr from-gray-800 to-gray-400 shadow-lg mt-4 rounded">
             <div class="current-weather flex items-center justify-between px-6 py-8">
                 <div class="flex items-center">
                     <div>
@@ -22,7 +23,7 @@
                     <canvas ref="iconCurrent" id="iconCurrent" width="96" height="96"></canvas>    
                 </div>                
             </div> 
-            <div class="future-weather text-sm bg-gray-800 px-6 py-8 overflow-hidden">
+            <div class="future-weather text-sm bg-gradient-to-tr from-blue-200 to-blue-400 px-6 py-8 overflow-hidden">
                 <div
                  v-for="(days, index) in daily" 
                  :key="days.datetime" 
@@ -64,7 +65,6 @@
             var $address = document.querySelector('#address-value')
             
             placesAutocomplete.on('change', (e) => {
-                console.log(e.suggestion);
                 $address.textContent = e.suggestion.value
 
                 this.location.city = `${e.suggestion.name}, ${e.suggestion.country}`
@@ -105,8 +105,7 @@
                 fetch(`/api/weather?city=${this.location.city}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
-                    console.log(data.days)
+                  
                     this.currentTemperature.actual = Math.round(data.currentConditions.temp)
                     this.currentTemperature.feels = Math.round(data.currentConditions.feelslike)
                     this.currentTemperature.summary = data.currentConditions.conditions

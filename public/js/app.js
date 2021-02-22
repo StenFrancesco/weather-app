@@ -1894,6 +1894,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     var _this = this;
@@ -1909,7 +1910,6 @@ __webpack_require__.r(__webpack_exports__);
     });
     var $address = document.querySelector('#address-value');
     placesAutocomplete.on('change', function (e) {
-      console.log(e.suggestion);
       $address.textContent = e.suggestion.value;
       _this.location.city = "".concat(e.suggestion.name, ", ").concat(e.suggestion.country);
       _this.location.lat = "".concat(e.suggestion.latlng.lat);
@@ -1951,8 +1951,6 @@ __webpack_require__.r(__webpack_exports__);
       fetch("/api/weather?city=".concat(this.location.city)).then(function (response) {
         return response.json();
       }).then(function (data) {
-        console.log(data);
-        console.log(data.days);
         _this2.currentTemperature.actual = Math.round(data.currentConditions.temp);
         _this2.currentTemperature.feels = Math.round(data.currentConditions.feelslike);
         _this2.currentTemperature.summary = data.currentConditions.conditions;
@@ -37486,7 +37484,7 @@ var render = function() {
       "div",
       {
         staticClass:
-          "weather-container font-sans w-128 max-w-lg overflow-hidden bg-gray-900 shadow-lg mt-4"
+          "weather-container font-sans w-128 max-w-lg overflow-hidden bg-gradient-to-tr from-gray-800 to-gray-400 shadow-lg mt-4 rounded"
       },
       [
         _c(
@@ -37533,7 +37531,7 @@ var render = function() {
           "div",
           {
             staticClass:
-              "future-weather text-sm bg-gray-800 px-6 py-8 overflow-hidden"
+              "future-weather text-sm bg-gradient-to-tr from-blue-200 to-blue-400 px-6 py-8 overflow-hidden"
           },
           _vm._l(_vm.daily, function(days, index) {
             return index < 5
@@ -37592,7 +37590,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "places-input text-gray-800" }, [
       _c("input", {
-        staticClass: "form-control",
+        staticClass: "form-control rounded",
         attrs: {
           type: "search",
           id: "address",
@@ -37600,9 +37598,7 @@ var staticRenderFns = [
         }
       }),
       _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("p", [
+      _c("p", { staticClass: "m-1" }, [
         _vm._v("Selected: "),
         _c("strong", { attrs: { id: "address-value" } }, [_vm._v("none")])
       ])
